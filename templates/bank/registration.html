@@ -1,0 +1,23 @@
+{% extends 'bank/base.html' %}
+
+{% block body_block %}
+<div class="jumbotron">
+
+  {% if registered %}
+    <h1>Thank You for registering!</h1>
+  {% else %}
+    <h1> Welcome to Registration Page</h1>
+    <h5> Register to become a member...</h5>
+
+
+    <form class="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      {{ profile_form.as_p }}
+      <input type="submit" name="" value="Register">
+    </form>
+
+
+  {% endif %}
+</div>
+{% endblock %}
