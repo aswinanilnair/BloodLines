@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'BloodLines.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'prj1',
+        'NAME': 'blood_bank',
         'USER':'postgres',
-        'PASSWORD':'pass2000',
+        'PASSWORD':'aswinnair',
         'HOST' :'localhost',
         'PORT':'5432'
     }
