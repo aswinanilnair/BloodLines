@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "{% static 'css/blog.css' %}">
+
+
+    </head>
+
+    <body>
+        <div class = "page">
+            <div class = "header">
+                <h1>Every donor is a life saver.</h1>
+            </div>
+
+            <div class="links">
+                    <center>
+
+
+                    <a href = "{% url 'index' %}">Home</a>
+
+
+                    </center>
+            </div>
+            <div class = "bodypart">
+                <div class="imagepart"></div>
+                <div class="newspart">
+                    <h2> Blood Donation Drive Updates :-</h2>
+                    <div class="news">
+                        <marquee direction="up" height="100%">
+
+                          <p>The upcoming Bangalore city blood donation drive will be conducted on April 27th.Stay tuned for more updates</p>
+
+                        </marquee>
+                    </div>
+                </div>
+                <hr>
+                <div class ="info">
+                <h1>Blood Compatibility Chart :-</h1>
+                    <p>An essential aspect of blood donation which isn't known to the general public is the concept of blood compatibility. Blood compatibility is crucially important to the patients recieving the blood as there are generally multiple blood types which are compatibile with yours and other types which are non compatible. Every donor and patient alike must be aware of such a concept as incompatible blood is extremely dangerous to the body and in many cases becomes fatal.We have therefore provided a fundamental blood compatibility chart which is displayed on the right. You can always visit this page as a reference in the near future.</p>
+
+                </div>
+                <div class="chart"></div>
+                <hr>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
