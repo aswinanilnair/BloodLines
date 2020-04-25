@@ -19,8 +19,6 @@
             <li> <a href="{% url 'blog' %}"> <span class="glyphicon glyphicon-list-alt"></span> Blog</a> </li>
 
             <!-- Add a link to create requests -->
-
-
             {% if user.is_authenticated %}
 
               <li><a href="{% url 'bank:request_blood' %}" class="navbar-link"> <span class="glyphicon glyphicon-tint"></span> Requests</a></li>
