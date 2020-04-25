@@ -77,7 +77,7 @@ def user_logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 def blogpage(request):
-    return render(request,'bank/blog.html')
+    return render(request,'bank/blogv1.html')
 
 def make_request(request):
    return HttpResponse("Request Page Coming Up!!")
