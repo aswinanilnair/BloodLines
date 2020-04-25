@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from bank.forms import UserForm,UserProfileInfoForm
+from bank.forms import UserForm,UserProfileInfoForm,BlogPostForm
+from bank.models import BlogPost
 #don't forget to add your models
 
 
@@ -68,6 +69,10 @@ def user_login(request):
         return render(request,'bank/login.html',{})
 
 @login_required
+def newPost(request):
+    return render(request,'bank/newpostForm.html')
+
+@login_required
 def requestBlood(request):
     return render(request,'bank/request.html')
 
@@ -77,7 +82,9 @@ def user_logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 def blogpage(request):
-    return render(request,'bank/blogv1.html')
+    blogs = BlogPost.objects.all()
+    return render(request,'bank/blog.html',{'blogs':blogs})
+
 
 def make_request(request):
    return HttpResponse("Request Page Coming Up!!")

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from bank.models import UserProfileInfo
+from bank.models import UserProfileInfo,BlogPost
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -19,3 +19,9 @@ class UserProfileInfoForm(forms.ModelForm):
     class Meta():
         model = UserProfileInfo
         fields = ('img','dob','phone','blood_group')
+
+class BlogPostForm(forms.ModelForm):
+
+    class Meta():
+        model = BlogPost
+        fields = ('title','blog_img','desc','created_at')

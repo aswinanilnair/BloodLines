@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 
 # Create your models here.
 class UserProfileInfo(models.Model):
@@ -25,3 +26,9 @@ class UserProfileInfo(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length = 100)
+    blog_img = models.ImageField(upload_to='blog_pics')
+    desc = models.TextField(max_length=1024)
+    created_at = models.DateField(default=datetime.now)
