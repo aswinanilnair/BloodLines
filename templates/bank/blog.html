@@ -3,13 +3,13 @@
 
 {% block body_block %}
 <!-- Navigation -->
-<marquee>Next Blood Donation camp at PES UNIVERSITY EC CAMPUS on May 19th,2021</marquee>
+<marquee>Next Blood Donation camp at PES UNIVERSITY EC CAMPUS on May 19th, 2021</marquee>
 <div class="jumbotron">
   <h1>Welcome to the Blog</h1>
   <div class="card-body">
     {% if user.is_authenticated %}
       <h3>Just 1 donation can save up to 3 lives <span class="glyphicon glyphicon-heart"></span></h3>
-      <a href="{% url 'postBlog' %}" class="btn btn-primary">Add Post <span class="glyphicon glyphicon-plus" ></span> </a>
+      <a href="{% url 'postBlog' %}" class="btn btn-primary"> <span class="glyphicon glyphicon-plus" ></span> Add Post </a>
 
     {% else %}
     <h3 class="card-header"> <a href="{% url 'bank:register' %}" class="">Register</a> to become a blood donor </h3>
@@ -17,8 +17,6 @@
     {% endif %}
   </div>
 </div>
-
-
 
 <div class="container">
   <div class="row">
@@ -32,7 +30,7 @@
               <div class="card-body">
                   <h2 class="card-title">Why should you donate blood?</h2>
                   <p class="card-text">We maintain a regular supply of all blood types to ensure the right blood is available to everyone who needs it. We need enough of the right types of blood to meet day-to-day patient needs and to cope with emergencies.</p>
-                  <a href="#" class="btn btn-primary">Read More &rarr;</a>
+
           </div>
     </div>
 <hr>
@@ -70,7 +68,7 @@
             <h2 class="card-title">How is your blood used?</h2>
             <p class="card-text">Donated blood or components are given to a patient in a blood transfusion. Blood transfusions are
                 given via an intravenous line into a blood vessel.</p>
-             <a href="#" class="btn btn-primary">Read More &rarr;</a>
+
         </div>
         <div class="card-footer text-muted">
 
@@ -84,14 +82,16 @@
 {% for blog in blogs %}
   <div class="container">
     <div class="card mb-4">
+      {% if blog.blog_img_url %}
       <img src="{{blog.blog_img.url}}">
+      {% endif %}
 
         <div class="card-body">
             <h2 class="card-title">{{blog.title}}</h2>
             <h4 class="text-muted">{{blog.created_at}}</h4>
-            
+
             <p class="card-text">{{blog.desc}}</p>
-             <a href="#" class="btn btn-primary">Read More &rarr;</a>
+
         </div>
         <div class="card-footer text-muted">
 
