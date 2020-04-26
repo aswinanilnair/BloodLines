@@ -68,9 +68,27 @@ def user_login(request):
     else:
         return render(request,'bank/login.html',{})
 
-@login_required
+
 def newPost(request):
-    return render(request,'bank/newpostForm.html')
+    if request.method =='POST':
+        blog_form = BlogPostForm(data = request.POST)
+        if blog_form.is_valid():
+
+            blog = blog_form.save(commit=False)
+
+            if 'blog_img' in request.FILES:
+                blog.img = request.FILES['blog_img']
+
+
+            blog.save()
+            return HttpResponseRedirect(reverse('blog'))
+
+        else:
+            print(user_form.errors,profile_form.errors)
+    else:
+        blog_form = BlogPostForm()
+
+    return render(request,'bank/newpostForm.html',{'blog_form':blog_form,})
 
 @login_required
 def requestBlood(request):

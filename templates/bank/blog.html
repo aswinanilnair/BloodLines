@@ -17,95 +17,28 @@
     {% endif %}
   </div>
 </div>
-
-<div class="container">
-  <div class="row">
-      <div class="col-md-8">
-          <h1 class="my-4">Become a Blood Donor.
-              <small>Save lives.</small>
-          </h1>
-          <hr>
-          <div class="card mb-4" id="why">
-              <img class="card-img-top" src="{% static "bank/images/blog_1.jpg" %}" alt="Card image cap">
-              <div class="card-body">
-                  <h2 class="card-title">Why should you donate blood?</h2>
-                  <p class="card-text">We maintain a regular supply of all blood types to ensure the right blood is available to everyone who needs it. We need enough of the right types of blood to meet day-to-day patient needs and to cope with emergencies.</p>
-
-          </div>
-    </div>
 <hr>
 
-  <div class="card mb-4">
-      <img src="{% static "bank/images/blog_2.jpg" %}" alt="">
-      <div class="card-body">
-          <h2 class="card-title">Types of Blood</h2>
-          <p class="card-text">There are eight main blood types but some are rarer than others. The list below shows the percentage
-              of donors with each blood type:
-              <br>
-              <ul>
-                  <li>O positive: 35%</li>
-                  <li> O negative: 13%</li>
-                  <li> A positive: 30%</li>
-                  <li> A negative: 8%</li>
-                  <li> B positive: 8%</li>
-                  <li> B negative: 2%</li>
-                  <li> AB positive: 2%</li>
-                  <li> AB negative: 1%</li>
-
-              </ul>
-          </p>
-          <!--a href="#" class="btn btn-primary">Read More &rarr;</a-->
-      </div>
-  </div>
-<hr>
-  <div class="container">
-
-    <div class="card mb-4">
-
-      <img src="{% static "bank/images/blog_3.jpg" %}" alt="Card image cap">
-
-        <div class="card-body">
-            <h2 class="card-title">How is your blood used?</h2>
-            <p class="card-text">Donated blood or components are given to a patient in a blood transfusion. Blood transfusions are
-                given via an intravenous line into a blood vessel.</p>
-
-        </div>
-        <div class="card-footer text-muted">
-
-        </div>
-    </div>
-    <hr>
-
-  </div>
-
-  <!-- Sidebar Widgets Column -->
 {% for blog in blogs %}
-  <div class="container">
-    <div class="card mb-4">
-      {% if blog.blog_img %}
-        <img src="{{blog.blog_img.url}}">
-      {% endif %}
+<div class="panel panel-default">
+  <div class="panel-heading"> <h3>{{blog.title}}</h3> <h4 class="text-muted">{{blog.created_at}}</h4></div>
+  <div class="panel-body">
+    <p class="card-text">{{blog.desc}}</p>
+    {% if blog.blog_img %}
+      <div class="text-center">
+        <img class="img-thumbnail" src="{{blog.blog_img.url}}">
+      </div>
+    {% endif %}
+    <div class="card-footer text-muted">
 
-        <div class="card-body">
-            <h2 class="card-title">{{blog.title}}</h2>
-            <h4 class="text-muted">{{blog.created_at}}</h4>
-
-            <p class="card-text">{{blog.desc}}</p>
-
-        </div>
-        <div class="card-footer text-muted">
-
-        </div>
     </div>
-    <hr>
-
-  </div>
-  {% endfor %}
 
   </div>
 
 </div>
-</div>
+<hr>
+{% endfor %}
+
 
 {% endblock %}
 {{dest.name}

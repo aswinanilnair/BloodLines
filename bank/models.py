@@ -34,8 +34,5 @@ class BlogPost(models.Model):
     desc = models.TextField(max_length=1024)
     created_at = models.DateField(default=datetime.now)
 
-    class Meta:
-        ordering = ['-created_at']
-
     def __str__(self):
         return self.title

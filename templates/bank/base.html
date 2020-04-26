@@ -32,13 +32,14 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-              <li> <a href="{% url 'logout' %}" class="navbar-link">Logout</a></li>
+              <li> <a href="{% url 'logout' %}" class="navbar-link">Hello {{user.username}}, Logout?</a></li>
 
             {% else %}
               <li> <a href="{% url 'bank:user_login' %}"> <span class="glyphicon glyphicon-log-in"> </span> Login</a></li>
               <li><a href="{% url 'bank:register' %}" class="navbar-link"> <span class="glyphicon glyphicon-user"></span>Register</a></li>
+              <li><a href="{% url 'admin:index' %}" class="navbar-link">  <span class="glyphicon glyphicon-lock"></span> Admin</a></li>
             {% endif %}
-            <li><a href="{% url 'admin:index' %}" class="navbar-link">  <span class="glyphicon glyphicon-lock"></span> Admin</a></li>
+
 
           </ul>
         </div>
