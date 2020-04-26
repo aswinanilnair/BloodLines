@@ -1,6 +1,8 @@
 # BloodLines
 Simple bloodbank app made with the help of Python's Django Web Framework and integrated with PostgreSQL.
 
+A database application such as this can help bridge the gap between hospitals, blood banks and ordinary citizens by not only improving the connectivity between the three, but also greatly improving the efficiency in the urgent ‘demand and supply’ mechanisms which currently bog down the medical industry. Such an application, if structured and flawlessly executed on a large scale, has the potential to sustain a successful business model with respect to hospitals and blood banks which would be its primary sources of revenue.
+
 # Install the Dependencies:
  - `pip install pillow` The Python Imaging Library adds image processing capabilities to your Python interpreter. [more](https://github.com/python-pillow/Pillow)
  - `pip install bcrypt` Good password hashing for your software and your servers . [more](https://pypi.org/project/bcrypt/)
