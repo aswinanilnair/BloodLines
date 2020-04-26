@@ -29,6 +29,7 @@ class UserProfileInfo(models.Model):
 
 class BlogPost(models.Model):
     title = models.CharField(max_length = 100)
+    user = models.ForeignKey
     blog_img = models.ImageField(upload_to='blog_pics',blank=True)
     desc = models.TextField(max_length=1024)
     created_at = models.DateField(default=datetime.now)
