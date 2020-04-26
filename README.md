@@ -9,7 +9,7 @@ ver2 of BloodWise
  - If a new browser tab does not open with the homepage then, copy and paste the link shown on your terminal onto a browser.
 
 # Install the Dependencies:
- - `pip install pillow`
+ - `pip install pillow` [The Python Imaging Library adds image processing capabilities to your Python interpreter](https://github.com/python-pillow/Pillow)
  - `pip install bcrypt`
  - `pip install django[argon2]`
  - `pip install psycopg2`
