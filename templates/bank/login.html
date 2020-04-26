@@ -1,6 +1,12 @@
 {% extends 'bank/base.html' %}
 
 {% block body_block %}
+{% if user.is_authenticated %}
+<div class="jumbotron">
+  <h2>Hey you are logged in as {{user.username}}  <span class="glyphicon glyphicon-exclamation-sign" ></span></h2>
+  <h5>Want to <a href="{% url 'logout' %}">sign out</a>?</h5>
+</div>
+{% else %}
 <div class="jumbotron">
   <h1>Welcome to the Login Page</h1>
   <h5>Login to Continue...</h5>
@@ -22,6 +28,7 @@
 </form>
 
 </div>
+{% endif %}
 
 
 {% endblock %}
