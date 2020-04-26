@@ -7,3 +7,9 @@ ver2 of BloodWise
  - Activate your **virtual environment** containing the Django web framework.
  - Run command: `python manage.py runserver`
  - If a new browser tab does not open with the homepage then, copy and paste the link shown on your terminal onto a browser.
+
+# Install the Dependencies:
+ - `pip install pillow`
+ - `pip install bcrypt`
+ - `pip install django[argon2]`
+ - `pip install psycopg2`
