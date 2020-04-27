@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # my-app
     'bank',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd-party-app
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +141,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL ='/media/'

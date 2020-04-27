@@ -32,7 +32,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-              <li> <a href="{% url 'logout' %}" class="navbar-link">Hello {{user.username}}, Logout?</a></li>
+              <li> <a href="{% url 'logout' %}" class="navbar-link">Hello '{{user.username}}', Logout?</a></li>
 
             {% else %}
               <li> <a href="{% url 'bank:user_login' %}"> <span class="glyphicon glyphicon-log-in"> </span> Login</a></li>
