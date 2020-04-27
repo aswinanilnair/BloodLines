@@ -1,6 +1,8 @@
-.main_bg{
-     background: url("/static/images/bg_1.jpg") 50% 0 no-repeat fixed;
-     color: white;
-     height: 650px;
-     padding: 100px 0 0 0;
+h1{
+     text-decoration: underline;
+     background: url();
+}
+
+body{
+     background: url('/static/bank/images/bg_4.jpg'); 
 }

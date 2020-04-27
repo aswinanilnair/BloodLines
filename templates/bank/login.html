@@ -1,6 +1,12 @@
 {% extends 'bank/base.html' %}
+{% load static %}
+
+{% block head_block %}
+<link rel="stylesheet" type="text/css" href="{% static 'bank/css/index.css' %}">
+{% endblock %}
 
 {% block body_block %}
+
 {% if user.is_authenticated %}
 <div class="jumbotron">
   <h2>Hey you are logged in as {{user.username}}  <span class="glyphicon glyphicon-exclamation-sign" ></span></h2>

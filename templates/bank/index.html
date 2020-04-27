@@ -1,13 +1,8 @@
 {% extends 'bank/base.html' %}
+{% load static %}
+
 {% block head_block %}
-<style >
-  background: url("/static/bank/images/bg_1.jpg") 50% 0 no-repeat fixed;
-  color: white;
-  height: 650px;
-  padding: 100px 0 0 0;
-
-</style>
-
+<link rel="stylesheet" type="text/css" href="{% static 'bank/css/index.css' %}">
 {% endblock %}
 
 
@@ -16,6 +11,7 @@
 <div class="main-bg">
   <div class="jumbotron">
     <h1 align="center">BloodLines</h1>
+    <h3 align="center"> Your Online Blood Bank. </h3>
   </div>
 
   {% if user.is_authenticated %}
