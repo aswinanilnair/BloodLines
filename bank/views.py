@@ -45,7 +45,7 @@ def register(request):
     return render(request,'bank/registration.html',
                                         {'user_form':user_form,
                                          'profile_form':profile_form,
-                                          'registered':registered})
+                                         'registered':registered})
 
 
 def user_login(request):
@@ -71,11 +71,9 @@ def user_login(request):
 
 def newPost(request):
     if request.method =='POST':
-        blog_form = BlogPostForm(data = request.POST)
+        blog_form = BlogPostForm(request.POST,request.FILES)
         if blog_form.is_valid():
-
             blog = blog_form.save(commit=False)
-
             if 'blog_img' in request.FILES:
                 blog.img = request.FILES['blog_img']
 
@@ -84,11 +82,11 @@ def newPost(request):
             return HttpResponseRedirect(reverse('blog'))
 
         else:
-            print(user_form.errors,profile_form.errors)
+            print(blog_form.errors)
     else:
         blog_form = BlogPostForm()
 
-    return render(request,'bank/newpostForm.html',{'blog_form':blog_form,})
+    return render(request,'bank/newpostForm.html',{'blog_form':blog_form})
 
 @login_required
 def requestBlood(request):
