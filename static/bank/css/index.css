@@ -4,5 +4,7 @@ h1{
 }
 
 body{
-     background: url('/static/bank/images/bg_4.jpg'); 
+     background: url('/static/bank/images/bg_4.jpg') 50% 0 no-repeat fixed;
+     /* color:rgb(255, 0, 102); */
+     height: 650px;
 }
