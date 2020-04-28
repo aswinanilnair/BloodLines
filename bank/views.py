@@ -95,8 +95,8 @@ def make_request(request):
         req_form = NewRequestForm(request.POST,request.FILES)
         if req_form.is_valid():
             req = req_form.save(commit=False)
-            # if 'doc' in request.FILES:
-            #     req.doc = request.FILES['doc']
+            if 'doc' in request.FILES:
+                 req.doc = request.FILES['doc']
             req.save()
             return HttpResponseRedirect(reverse('index'))
         else:

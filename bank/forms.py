@@ -28,4 +28,4 @@ class NewRequestForm(forms.ModelForm):
 
     class Meta():
         model = NewRequest
-        fields = ('title','name','msg','phone','blood_group','email','city','created_at')
+        fields = ('title','name','msg','phone','blood_group','email','doc','city','created_at')

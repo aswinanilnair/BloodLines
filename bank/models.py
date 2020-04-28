@@ -52,12 +52,12 @@ class NewRequest(models.Model):
     )
     title = models.CharField(max_length = 128,default="Urgent Help")
     name = models.CharField(max_length=128,default="tester")
-    msg = models.CharField(max_length = 128)
+    msg = models.TextField(max_length=1024)
     phone = models.CharField(max_length=10)
     blood_group = models.CharField(max_length=3,choices=CHOICES)
     email = models.EmailField(max_length=128)
     city = models.CharField(max_length=128,default="Bengaluru")
-    #file upload here
+    doc = models.FileField(upload_to = 'docs',blank=True)
     created_at = models.DateField(default=datetime.now)
 
     def __str__(self):
