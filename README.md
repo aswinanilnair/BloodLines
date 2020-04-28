@@ -14,6 +14,7 @@ A database application such as this can help bridge the gap between hospitals, b
  - Download the repository and navigate into it.
  - Activate your **virtual environment** containing the Django web framework.
  - Install the above listed dependencies.
+ - Run `python manage.py makemigrations` and `python manage.py migrate` to propagate changes you make in your models into your database schema.
  - Run command: `python manage.py runserver`
  - If a new browser tab does not open with the homepage then, copy and paste the link shown on your terminal onto a browser.
 
