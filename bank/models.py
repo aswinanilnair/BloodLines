@@ -36,3 +36,29 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class NewRequest(models.Model):
+
+    CHOICES = (
+        ('A+', 'A +ve'),
+        ('B+', 'B +ve'),
+        ('AB+', 'AB +ve'),
+        ('O+', 'O +ve'),
+        ('A-', 'A -ve'),
+        ('B-', 'B -ve'),
+        ('AB-', 'AB -ve'),
+        ('O-','O -ve')
+    )
+    title = models.CharField(max_length = 128,default="Urgent Help")
+    name = models.CharField(max_length=128,default="tester")
+    msg = models.CharField(max_length = 128)
+    phone = models.CharField(max_length=10)
+    blood_group = models.CharField(max_length=3,choices=CHOICES)
+    email = models.EmailField(max_length=128)
+    city = models.CharField(max_length=128,default="Bengaluru")
+    #file upload here
+    created_at = models.DateField(default=datetime.now)
+
+    def __str__(self):
+        return self.msg

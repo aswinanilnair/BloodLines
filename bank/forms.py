@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from bank.models import UserProfileInfo,BlogPost
+from bank.models import UserProfileInfo,BlogPost,NewRequest
 
 
 class UserForm(forms.ModelForm):
@@ -23,3 +23,9 @@ class BlogPostForm(forms.ModelForm):
     class Meta():
         model = BlogPost
         fields = ('title','blog_img','desc','created_at')
+
+class NewRequestForm(forms.ModelForm):
+
+    class Meta():
+        model = NewRequest
+        fields = ('title','name','msg','phone','blood_group','email','city','created_at')

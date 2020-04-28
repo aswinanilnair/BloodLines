@@ -3,8 +3,8 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from bank.forms import UserForm,UserProfileInfoForm,BlogPostForm
-from bank.models import BlogPost
+from bank.forms import UserForm,UserProfileInfoForm,BlogPostForm,NewRequestForm
+from bank.models import BlogPost,NewRequest
 #don't forget to add your models
 
 
@@ -89,9 +89,28 @@ def newPost(request):
 
     return render(request,'bank/newpostForm.html',{'blog_form':blog_form})
 
+
+def make_request(request):
+    if request.method == 'POST':
+        req_form = NewRequestForm(request.POST,request.FILES)
+        if req_form.is_valid():
+            req = req_form.save(commit=False)
+            # if 'doc' in request.FILES:
+            #     req.doc = request.FILES['doc']
+            req.save()
+            return HttpResponseRedirect(reverse('index'))
+        else:
+            print(req_form.errors)
+    else:
+        req_form = NewRequestForm()
+
+    return render(request,'bank/newRequest.html',{'req_form':req_form})
+
 @login_required
 def requestBlood(request):
-    return render(request,'bank/request.html')
+    reqs = NewRequest.objects.all()
+    return render(request,'bank/request.html',{'reqs':reqs})
+
 
 @login_required
 def user_logout(request):
@@ -101,7 +120,3 @@ def user_logout(request):
 def blogpage(request):
     blogs = BlogPost.objects.all()
     return render(request,'bank/blog.html',{'blogs':blogs})
-
-
-def make_request(request):
-   return HttpResponse("Request Page Coming Up!!")
