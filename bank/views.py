@@ -68,12 +68,13 @@ def user_login(request):
     else:
         return render(request,'bank/login.html',{})
 
-
+@login_required
 def newPost(request):
     if request.method =='POST':
         blog_form = BlogPostForm(request.POST,request.FILES)
         if blog_form.is_valid():
             blog = blog_form.save(commit=False)
+            blog.user= request.user
             if 'blog_img' in request.FILES:
                 blog.img = request.FILES['blog_img']
 
