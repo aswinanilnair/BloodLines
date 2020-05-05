@@ -55,19 +55,6 @@ def api_add_request_view(request):
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['POST',])
-def registration_view(request):
-    user_form = UserProfileInfo()
-    if request.method == 'POST':
-        serializer = UserProfileSerializer(user_form,data = request.data)
-        data = {}
-        if serializer.is_valid():
-            user = serializer.save()
-            data['response'] = "successfully registerd user"
-            data['email'] = user.email
-            data['username'] = user.username
-        else:
-            data = serializer.errors
-        return Response(data)
+
 
 
