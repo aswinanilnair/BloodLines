@@ -18,11 +18,11 @@ class UserProfileInfoForm(forms.ModelForm):
         model = UserProfileInfo
         fields = ('img','dob','phone','blood_group')
 
-class BlogPostForm(forms.ModelForm):
+# class BlogPostForm(forms.ModelForm):
 
-    class Meta():
-        model = BlogPost
-        fields = ('title','blog_img','desc','created_at')
+#     class Meta():
+#         model = BlogPost
+#         fields = ('title','blog_img','desc','created_at')
 
 class NewRequestForm(forms.ModelForm):
 

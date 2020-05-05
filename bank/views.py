@@ -3,15 +3,18 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from bank.forms import UserForm,UserProfileInfoForm,BlogPostForm,NewRequestForm
+from bank.forms import UserForm,UserProfileInfoForm,NewRequestForm #,BlogPostForm
 from bank.models import BlogPost,NewRequest
 #don't forget to add your models
 
 
 # Create your views here.
+
+# INDEX VIEW
 def index(request):
     return render(request,'bank/index.html')
 
+# REGISTER VIEW
 def register(request):
     registered = False
 
@@ -48,6 +51,7 @@ def register(request):
                                          'registered':registered})
 
 
+# LOGIN VIEW
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -68,6 +72,8 @@ def user_login(request):
     else:
         return render(request,'bank/login.html',{})
 
+
+# NEW BLOG POST VIEW
 @login_required
 def newPost(request):
     if request.method =='POST':
@@ -89,7 +95,13 @@ def newPost(request):
 
     return render(request,'bank/newpostForm.html',{'blog_form':blog_form})
 
+# BLOG PAGE VIEW
+def blogpage(request):
+    blogs = BlogPost.objects.all()
+    return render(request,'bank/blog.html',{'blogs':blogs})
 
+
+# MAKE BLOOD REQUEST VIEW
 def make_request(request):
     if request.method == 'POST':
         req_form = NewRequestForm(request.POST,request.FILES)
@@ -106,17 +118,18 @@ def make_request(request):
 
     return render(request,'bank/newRequest.html',{'req_form':req_form})
 
+
+# SHOW BLOOD REQUEST VIEW
 @login_required
 def requestBlood(request):
     reqs = NewRequest.objects.all()
     return render(request,'bank/request.html',{'reqs':reqs})
 
 
+# LOGOUT VIEW    
 @login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-def blogpage(request):
-    blogs = BlogPost.objects.all()
-    return render(request,'bank/blog.html',{'blogs':blogs})
+

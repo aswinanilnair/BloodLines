@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
-
 from bank import views
 
 urlpatterns = [
@@ -27,4 +26,9 @@ urlpatterns = [
     path('blog/',views.blogpage,name="blog"),
     path('blog/new',views.newPost,name="postBlog"),
     path('admin/', admin.site.urls),
+    path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
+
+    # REST FRAMEWORK
+    path('api/',include('bank.api.urls',namespace='bank_api'))
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
