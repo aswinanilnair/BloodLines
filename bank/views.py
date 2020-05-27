@@ -125,6 +125,14 @@ def requestBlood(request):
     reqs = NewRequest.objects.all()
     return render(request,'bank/request.html',{'reqs':reqs})
 
+# DELETE BLOOD REQUEST VIEW
+@login_required
+def delete_request(request,req_id=None):
+    post_to_delete=NewRequest.objects.get(id=req_id)
+    post_to_delete.delete()
+    return HttpResponseRedirect(reverse('bank:request_blood'))
+
+
 
 # LOGOUT VIEW    
 @login_required

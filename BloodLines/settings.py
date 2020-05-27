@@ -58,7 +58,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'BloodLines.urls'
 
-CSRF_COOKIE_SECURE = True
+#change to True for React I guess.
+CSRF_COOKIE_SECURE = False
 
 TEMPLATES = [
     {

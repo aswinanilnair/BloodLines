@@ -9,4 +9,6 @@ urlpatterns=[
     path('requests/',views.requestBlood,name="request_blood"),
     path('requests/new',views.make_request,name="new_request"),
     path('user_login/',views.user_login,name='user_login'),
+    path('delete/<req_id>',views.delete_request,name='delete_req'),
+    
 ]
