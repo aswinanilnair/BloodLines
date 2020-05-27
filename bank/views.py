@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from bank.forms import UserForm,UserProfileInfoForm,NewRequestForm #,BlogPostForm
+from bank.forms import UserForm,UserProfileInfoForm,NewRequestForm,BlogPostForm
 from bank.models import BlogPost,NewRequest
 #don't forget to add your models
 
@@ -125,13 +125,13 @@ def requestBlood(request):
     reqs = NewRequest.objects.all()
     return render(request,'bank/request.html',{'reqs':reqs})
 
+
 # DELETE BLOOD REQUEST VIEW
 @login_required
 def delete_request(request,req_id=None):
     post_to_delete=NewRequest.objects.get(id=req_id)
     post_to_delete.delete()
     return HttpResponseRedirect(reverse('bank:request_blood'))
-
 
 
 # LOGOUT VIEW    
