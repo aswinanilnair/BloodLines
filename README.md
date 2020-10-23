@@ -4,8 +4,8 @@ Simple bloodbank app made with the help of Python's Django Web Framework and int
 A database application such as this can help bridge the gap between hospitals, blood banks and ordinary citizens by not only improving the connectivity between the three, but also greatly improving the efficiency in the urgent ‘demand and supply’ mechanisms which currently bog down the medical industry. Such an application, if structured and flawlessly executed on a large scale, has the potential to sustain a successful business model with respect to hospitals and blood banks which would be its primary sources of revenue.
 
 # Install the Dependencies:
- - `pip install requirements.txt` Quick install everything
- OR
+ - `pip install requirements.txt` Quick install everything\
+ OR\
  - `pip install pillow` The Python Imaging Library adds image processing capabilities to your Python interpreter. [more](https://github.com/python-pillow/Pillow)
  - `pip install bcrypt` Good password hashing for your software and your servers . [more](https://pypi.org/project/bcrypt/)
  - `pip install argon2-cffi` Argon2 is a password-hashing function that summarizes the state of the art in the design of memory-hard functions and can be used to hash passwords for credential storage, key derivation, or other applications. [more](https://github.com/p-h-c/phc-winner-argon2)
